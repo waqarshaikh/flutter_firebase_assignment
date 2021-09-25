@@ -16,13 +16,13 @@ class _SignInState extends State<SignIn> {
   String email = "";
   String password = "";
   String error = "";
-  bool loading = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Sign In'),
+        backgroundColor: Colors.indigo,
       ),
       body: Center(
         child: Container(
@@ -69,7 +69,7 @@ class _SignInState extends State<SignIn> {
                 TextButton(
                   child: Text(
                     "Forgot password ?",
-                    style: TextStyle(color: Colors.blue),
+                    style: TextStyle(color: Colors.indigo),
                   ),
                   onPressed: () {
                     Navigator.push(context,
@@ -80,17 +80,16 @@ class _SignInState extends State<SignIn> {
                   height: 20.0,
                 ),
                 ElevatedButton(
+                  style: TextButton.styleFrom(
+                  backgroundColor: Colors.indigo
+                ),
                     child: Text("Sign in"),
                     onPressed: () async {
                       if (_formKey.currentState!.validate()) {
-                        setState(() {
-                          loading = true;
-                        });
                         dynamic result = await _authService
                             .signInWithEmailAndPassword(email, password);
                         if (result == null) {
                           setState(() {
-                            loading = false;
                             error = "Please enter a valid Email or Password.";
                           });
                         } else {
@@ -102,6 +101,16 @@ class _SignInState extends State<SignIn> {
                         }
                       }
                     }),
+                     SizedBox(
+                      height: 20.0,
+                    ),
+                    Text(
+                      error,
+                      style: TextStyle(
+                        color: Colors.red,
+                        fontSize: 15.00,
+                      ),
+                    ),
               ],
             ),
           ),

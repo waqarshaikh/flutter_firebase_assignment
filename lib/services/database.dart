@@ -1,13 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_firebase_assignment/models/custom_user.dart';
 
-
 class DatabaseService {
   final String? uid;
 
   DatabaseService({this.uid});
 
-  //Collection reference
   final CollectionReference userCollection =
       FirebaseFirestore.instance.collection("users");
 
@@ -21,22 +19,4 @@ class DatabaseService {
       uid: uid,
     );
   }
-
-  List<CustomUser> _usersListFromSnapshot(QuerySnapshot snapshot) {
-    return snapshot.docs.map((doc) {
-      return CustomUser(
-        name: doc.get("name") ?? "no name",
-        uid: uid,
-      );
-    }).toList();
-  }
-
-  Stream<CustomUser> get userData {
-    return userCollection.doc(uid).snapshots().map(userDataFromSnapshot);
-  }
-
-  Stream<List<CustomUser>> users() {
-    return userCollection.snapshots().map(_usersListFromSnapshot);
-  }
-
 }

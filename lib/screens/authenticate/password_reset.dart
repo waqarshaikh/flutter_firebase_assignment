@@ -20,6 +20,7 @@ class _PasswordResetState extends State<PasswordReset> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.indigo,
         title: Text("Password Reset"),
       ),
       body: Center(
@@ -47,6 +48,9 @@ class _PasswordResetState extends State<PasswordReset> {
                   height: 20.0,
                 ),
                 ElevatedButton(
+                  style: TextButton.styleFrom(
+                  backgroundColor: Colors.indigo
+                ),
                     child: Text("Submit"),
                     onPressed: () async {
                       if (_formKey.currentState!.validate()) {
@@ -56,11 +60,10 @@ class _PasswordResetState extends State<PasswordReset> {
                             content: Text(
                               "Password reset email has been sent!",
                               style: TextStyle(
-                                fontSize: 18.0
+                                fontSize: 19.0
                               )
                             ),
-                            backgroundColor: Colors.blue,
-
+                            backgroundColor: Colors.indigo,
                           )
                         );
                       }

@@ -1,8 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase_assignment/screens/authenticate/authenticate.dart';
-import 'package:flutter_firebase_assignment/services/auth.dart';
-import 'package:flutter_firebase_assignment/services/database.dart';
 
 class Home extends StatefulWidget {
   final String? name;
@@ -35,8 +33,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         title: Center(child: Text("Home")),
-        backgroundColor: Colors.blue[400],
-        elevation: 0.0,
+         backgroundColor: Colors.indigo,
       ),
       body: Container(
           padding: EdgeInsets.only(top: 200.0),
@@ -50,6 +47,9 @@ class _HomeState extends State<Home> {
                   height: 20.0,
                 ),
                 ElevatedButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.indigo    
+                  ),
                   onPressed: () async {
                     await _auth.signOut();
                     Navigator.pushAndRemoveUntil(

@@ -18,12 +18,12 @@ class _SignUpState extends State<SignUp> {
   String name = "";
   String password = "";
   String error = "";
-  bool loading = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.indigo,
           title: const Text('Sign Up'),
         ),
         body: Center(
@@ -74,6 +74,9 @@ class _SignUpState extends State<SignUp> {
                   height: 20.0,
                 ),
                 ElevatedButton(
+                  style: TextButton.styleFrom(
+                  backgroundColor: Colors.indigo
+                ),
                     onPressed: () async {
                       if (_formKey.currentState!.validate()) {
                         dynamic result = await _authService
@@ -92,17 +95,18 @@ class _SignUpState extends State<SignUp> {
                         }
                       }
                     },
-                    child: const Text("Sign up")),
+                    child: const Text("Sign up")
+            ),
                     SizedBox(
-                            height: 20.0,
-                          ),
-                          Text(
-                            error,
-                            style: TextStyle(
-                              color: Colors.red,
-                              fontSize: 15.00,
-                            ),
-                          ),
+                      height: 20.0,
+                    ),
+                    Text(
+                      error,
+                      style: TextStyle(
+                        color: Colors.red,
+                        fontSize: 15.00,
+                      ),
+                    ),
               ],
             ),
           ),

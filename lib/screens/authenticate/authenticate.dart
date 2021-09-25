@@ -15,13 +15,24 @@ class _AuthenticateState extends State<Authenticate> {
     return Scaffold(
         appBar: AppBar(
           title: Text("User Authentication"),
+          backgroundColor: Colors.indigo,
         ),
         body: Container(
           padding: EdgeInsets.only(top: 50.0),
             child: Center(
           child: Column(
             children: [
+              Text("Do you have an existing account?",
+              style: TextStyle(
+                fontSize: 20.0
+              ),),
+              SizedBox(
+                height: 20.0,
+              ),
               ElevatedButton(
+                style: TextButton.styleFrom(
+                  backgroundColor: Colors.indigo
+                ),
                   onPressed: () {
                     Navigator.push(
                         context,
@@ -30,11 +41,21 @@ class _AuthenticateState extends State<Authenticate> {
                         )
                     );
                   },
-                  child: Text("Sign-in")),
+                  child: Text("Sign in")),
+              SizedBox(
+                height: 40.0,
+              ),
+              Text("Or create a new account",
+              style: TextStyle(
+                fontSize: 20.0
+              ),),
               SizedBox(
                 height: 20.0,
               ),
               ElevatedButton(
+                style: TextButton.styleFrom(
+                  backgroundColor: Colors.indigo
+                ),
               onPressed: () {
                 Navigator.push(
                         context,
@@ -43,7 +64,7 @@ class _AuthenticateState extends State<Authenticate> {
                         )
                     );
               },
-              child: Text("Sign-up")),
+              child: Text("Sign up")),
             ],
           ),
         )));

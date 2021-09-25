@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
       value: AuthService().user,
       initialData: null,
       child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Flutter Firebase Assignment',
         home: Wrapper(),
       ),
